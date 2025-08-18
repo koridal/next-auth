@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 
 export default function Header() {
 	return (
@@ -17,10 +18,15 @@ export default function Header() {
 					</span>
 				</Link>
         <nav>
-          <ul className="flex gap-4 text-black text-sm font-medium">
+          <ul className="flex gap-4 items-center justify-between text-black text-sm font-medium">
             <Link href='/'>Home</Link>
             <Link href='/about'>About</Link>
-            <Link href='/sign-in'>Sign In</Link>
+            <SignedIn>
+							<UserButton />
+						</SignedIn>
+						<SignedOut>
+							<SignInButton	/>
+						</SignedOut>
           </ul>
         </nav>
 			</div>
